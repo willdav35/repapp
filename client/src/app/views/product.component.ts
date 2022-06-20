@@ -4,20 +4,23 @@ import { Store } from "../services/store.services";
 
 @Component({
   selector: "product-list",
-  templateUrl: "products.html"
+  templateUrl: "product.component.html",
+  styleUrls: ["product.component.css"]
 })
 
-export default class Products implements OnInit {
+export default class ProductComponent implements OnInit {
 
     
 
 constructor(public store: Store){
     
 }
-
+// relying on the binding of the store 
 ngOnInit(): void {
   this.store.getproducts()
-  .subscribe();
+  .subscribe(()=>{
+    //do something
+  });
 }
 
 
